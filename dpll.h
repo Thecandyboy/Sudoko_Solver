@@ -1,13 +1,11 @@
-// dpll.h
-#ifndef DPLL_H
-#define DPLL_H
-
 #include <vector>
-#include <unordered_set>
+#include <unordered_map>
 
-typedef std::unordered_set<int> Clause;
-typedef std::vector<Clause> CNF;
+// Define the types used
+using Literal = int;
+using Clause = std::vector<Literal>;
+using CNFFormula = std::vector<Clause>;
 
-bool dpll(const CNF &cnf);
-
-#endif
+// Declare the functions
+bool DPLL(CNFFormula formula, std::unordered_map<Literal, bool> &assignments);
+void printAssignments(const std::unordered_map<Literal, bool> &assignments);
